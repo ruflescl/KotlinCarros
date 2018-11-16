@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">KotlinCarros</string>
+
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="email_invalido">Email inválido</string>
+    <string name="senha_invalida_muito_curta">Senha muito curta</string>
+    <string name="senha_incorreta">Senha incorreta</string>
+    <string name="credencial_nao_existe">Credencial não encontrada</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="bem_vindo">Bem vindo(a), %1$s!</string>
+    <string name="modelo"><b>Modelo:</b> %1$s</string>
+    <string name="preco"><b>Preço:</b> R$ %1$.2f</string>
+    <string name="ano"><b>Ano:</b> %1$d</string>
+</resources>
