@@ -11,7 +11,7 @@ import com.brq.kotlincarros.R
 import com.brq.kotlincarros.features.home.vo.CarroVO
 import kotlinx.android.synthetic.main.list_item_carro.view.*
 
-class ListaCarrosAdapter(var listaCarros: List<CarroVO>, val context: Context)
+class ListaCarrosAdapter(var listaCarros: List<CarroVO>?, val context: Context)
     // As heranças no Kotlin são representadas desta forma no código (:)
     : RecyclerView.Adapter<ListaCarrosAdapter.ViewHolder>() {
 
@@ -28,25 +28,25 @@ class ListaCarrosAdapter(var listaCarros: List<CarroVO>, val context: Context)
     }
 
     // Funções 'one-liner' podem simplificar a leitura do código removendo as chaves '{}'
-    override fun getItemCount(): Int = listaCarros.size
+    override fun getItemCount(): Int = listaCarros?.size ?: 0
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         // 'let' é uma função que recebe como argumento o objeto que a está invocando
         // (neste caso é o CarroVO), permitindo o acesso a ele com o valor-parâmetro 'it'
-        listaCarros.get(position).let {
+        listaCarros?.get(position).let {
 
             // Como o holder é 'nullable' (ViewHolder'?'), devemos fazer chamadas 'safe'
             // encadeadas (.?)
-            holder?.imagemId?.setBackgroundResource(it.imagemId)
+            holder?.imagemId?.setBackgroundResource(it?.imagemId ?: 0)
 
             // Ou podemos 'arriscar' um NPE e fazer as chamadas através de
             // 'non-null assertion' (!!.)
-            holder!!.preco.text = context.getString(R.string.preco, it.preco)
+            holder!!.preco.text = context.getString(R.string.preco, it?.preco ?: 0.0)
 
             // Como foi feita uma 'non-null assertion' anteriormente, as próximas não
             // são necessárias (ver warning no '!!')
-            holder!!.ano.text = context.getString(R.string.ano, it.ano)
-            holder!!.modelo.text = context.getString(R.string.modelo, it.modelo)
+            holder!!.ano.text = context.getString(R.string.ano, it?.ano ?: 0)
+            holder!!.modelo.text = context.getString(R.string.modelo, it?.modelo ?: "")
         }
     }
 
