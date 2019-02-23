@@ -13,7 +13,10 @@ class LoginBO(val loginListener: LoginListener) {
                     "Rafael Lyra"),
             UsuarioVO("fernando@brq.com",
                     "54321",
-                    "Fernando Martins"))
+                    "Fernando Martins"),
+            UsuarioVO("zangado@brq.com",
+                    "11111",
+                    "Rafael Douglas de Oliveira"))
 
     fun realizarLogin(email: String, senha: String) {
         if (!emailValido(email)) {
